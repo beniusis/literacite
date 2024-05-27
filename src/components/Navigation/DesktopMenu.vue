@@ -12,7 +12,7 @@ import { RouterLink } from 'vue-router';
           <TooltipTrigger as-child>
             <RouterLink
               to="/"
-              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground"
               :class="
                 $route.name === 'home'
                   ? 'bg-accent text-accent-foreground'
@@ -31,7 +31,7 @@ import { RouterLink } from 'vue-router';
           <TooltipTrigger as-child>
             <RouterLink
               to="/analytics"
-              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground"
               :class="
                 $route.name === 'analytics'
                   ? 'bg-accent text-accent-foreground'
@@ -52,7 +52,7 @@ import { RouterLink } from 'vue-router';
           <TooltipTrigger as-child>
             <RouterLink
               to="/settings"
-              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8"
+              class="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground"
               :class="
                 $route.name === 'settings'
                   ? 'bg-accent text-accent-foreground'

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import { HomeView } from '@/views';
 
 const router = createRouter({
   history: createWebHistory('/'),
@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/analytics',
       name: 'analytics',
-      component: () => import('../views/AnalyticsView.vue')
+      component: () => import('@/views/AnalyticsView.vue')
     },
     {
       path: '/settings',
       name: 'settings',
-      component: () => import('../views/SettingsView.vue')
+      component: () => import('@/views/SettingsView.vue')
     }
   ]
 });
