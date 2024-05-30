@@ -7,7 +7,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'update', value: string): void;
+  (e: 'update:searchValue', value: string): void;
 }>();
 </script>
 
@@ -19,6 +19,6 @@ const emit = defineEmits<{
     placeholder="Search..."
     class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
     :model-value="props.searchValue"
-    @update:model-value="emit('update', $event.toString())"
+    @update:model-value="emit('update:searchValue', $event.toString())"
   />
 </template>

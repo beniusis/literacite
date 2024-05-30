@@ -13,7 +13,7 @@ const searchValue = ref('');
         <Navigation />
         <h1 class="sr-only">literacite</h1>
         <div class="relative ml-auto flex-1 md:grow-0">
-          <SearchBar :search-value="searchValue" @update="(newValue) => (searchValue = newValue)" />
+          <SearchBar v-model:search-value="searchValue" />
         </div>
       </Header>
     </div>
