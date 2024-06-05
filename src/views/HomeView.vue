@@ -1,6 +1,6 @@
 headerheader
 <script setup lang="ts">
-import { Header, Navigation, SearchBar } from '@/components';
+import { Header, Navigation, ReadingProgress, SearchBar } from '@/components';
 import { ref } from 'vue';
 
 const searchValue = ref('');
@@ -12,6 +12,12 @@ const searchValue = ref('');
       <Header>
         <Navigation />
         <h1 class="sr-only">literacite</h1>
+        <ReadingProgress
+          class="hidden sm:block"
+          title="Today's Progress"
+          :pages-read="10"
+          :pages-total="20"
+        />
         <div class="relative ml-auto flex-1 md:grow-0">
           <SearchBar v-model:search-value="searchValue" />
         </div>
