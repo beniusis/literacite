@@ -17,7 +17,7 @@ const emit = defineEmits<{
     id="search-input"
     type="text"
     placeholder="Search..."
-    class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
+    class="w-full rounded-lg bg-background pe-16 pl-8 md:w-[200px] lg:w-[336px]"
     :model-value="props.searchValue"
     @update:model-value="emit('update:searchValue', $event.toString())"
   />
