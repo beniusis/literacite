@@ -21,7 +21,7 @@ const searchForBooks = async () => {
 
   if (!loading.value && !error.value) {
     searchedBooks.value = books.value;
-    currentTab.value = 'searched';
+    currentTab.value = 'search';
   }
 };
 
@@ -31,7 +31,7 @@ const tabs = computed(() => {
     read: readBooks.value,
     reading: readingBooks.value,
     'to read': toReadBooks.value,
-    searched: searchedBooks.value
+    search: searchedBooks.value
   };
 
   return TABS.map((tab) => {

@@ -22,7 +22,7 @@ export interface Book {
   status?: BookStatus;
 }
 
-export type TabValue = 'all' | 'read' | 'reading' | 'to read' | 'searched';
+export type TabValue = 'all' | 'read' | 'reading' | 'to read' | 'search';
 
 export interface Tab {
   value: TabValue;
