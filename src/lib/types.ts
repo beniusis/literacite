@@ -1,6 +1,7 @@
 type BookStatus = 'READ' | 'READING' | 'TO READ';
 
 export interface Book {
+  id: string;
   volumeInfo: {
     title: string;
     authors: string[];
