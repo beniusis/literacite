@@ -2,15 +2,14 @@
 import { Separator } from '@/components/ui/separator';
 import { TabsContent } from '@/components/ui/tabs';
 import EmptyPlaceholder from './EmptyPlaceholder.vue';
+import { Books } from '@/components';
 import type { Book } from '@/lib/types';
-import type { ComputedRef } from 'vue';
-import BookBlock from './BookBlock.vue';
 
 const props = defineProps<{
   value: string;
   title: string;
   subtitle: string;
-  books: ComputedRef<Book[]>;
+  books: Book[];
 }>();
 </script>
 
@@ -23,9 +22,7 @@ const props = defineProps<{
       </div>
     </div>
     <Separator class="my-4 w-full" />
-    <EmptyPlaceholder v-if="props.books.value.length === 0" />
-    <div v-else class="grid grid-cols-auto gap-x-8 gap-y-4">
-      <BookBlock v-for="(book, index) in books.value" :key="index" :data="book" />
-    </div>
+    <EmptyPlaceholder v-if="props.books.length === 0" />
+    <Books v-else :data="props.books" />
   </TabsContent>
 </template>
