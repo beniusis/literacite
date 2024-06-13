@@ -7,3 +7,5 @@ export const TABS: Tab[] = [
   { value: 'to read', title: 'To Read', subtitle: 'Books you have marked to read for later' },
   { value: 'search', title: 'Search', subtitle: 'Books found using Google Books search' }
 ];
+
+export const ID_LENGTH = 12;
