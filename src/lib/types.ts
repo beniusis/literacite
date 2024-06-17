@@ -1,6 +1,6 @@
 type BookStatus = 'READ' | 'READING' | 'TO READ';
 
-export interface Book {
+export interface BookProps {
   id: string;
   volumeInfo: {
     title: string;
@@ -16,7 +16,6 @@ export interface Book {
       smallThumbnail?: string;
       thumbnail: string;
     };
-    language: string;
     canonicalVolumeLink?: string;
   };
   status?: BookStatus;
@@ -24,7 +23,7 @@ export interface Book {
 
 export type TabValue = 'all' | 'read' | 'reading' | 'to read' | 'search';
 
-export interface Tab {
+export interface TabProps {
   value: TabValue;
   title: string;
   subtitle: string;
