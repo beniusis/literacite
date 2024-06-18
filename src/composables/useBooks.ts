@@ -1,10 +1,10 @@
 import { ref } from 'vue';
-import type { Book } from '@/lib/types';
+import type { BookProps } from '@/lib/types';
 
 export const useBooks = async (query: string) => {
   const loading = ref(false);
   const error = ref(false);
-  const books = ref<Book[]>([]);
+  const books = ref<BookProps[]>([]);
 
   loading.value = true;
   error.value = false;

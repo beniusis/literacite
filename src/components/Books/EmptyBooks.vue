@@ -19,7 +19,7 @@
         <path d="M17 18.5a9 9 0 1 0-10 0" />
       </svg>
 
-      <h3 class="text-lg font-semibold text-primary">Could not find any books in this section</h3>
+      <h3 class="text-lg font-semibold text-primary">Could not find any books</h3>
       <p class="text-sm text-muted-foreground">Try adding one to your collection</p>
     </div>
   </div>

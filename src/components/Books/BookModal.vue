@@ -1,0 +1,97 @@
+<script setup lang="ts">
+import {
+  Dialog,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogScrollContent,
+  DialogTitle
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import type { BookProps } from '@/lib/types';
+import { useBooksStore } from '@/stores';
+
+const props = defineProps<{
+  isOpen: boolean;
+  book: BookProps;
+}>();
+
+const emit = defineEmits<{
+  (e: 'close'): void;
+}>();
+
+const { addBook, isAlreadyAdded } = useBooksStore();
+</script>
+
+<template>
+  <Dialog :open="props.isOpen" @update:open="emit('close')">
+    <DialogScrollContent class="gap-12">
+      <DialogHeader>
+        <DialogTitle>{{ props.book.volumeInfo.title }}</DialogTitle>
+        <DialogDescription>
+          {{ props.book.volumeInfo.description ?? 'No description available.' }}
+        </DialogDescription>
+      </DialogHeader>
+
+      <div class="flex flex-col items-center justify-center">
+        <div class="flex w-full items-center justify-center gap-12 sm:justify-start">
+          <img
+            v-if="props.book.volumeInfo.imageLinks"
+            class="rounded-md object-cover"
+            :src="props.book.volumeInfo.imageLinks.thumbnail"
+            :alt="`Cover of ${props.book.volumeInfo.title}`"
+            loading="lazy"
+          />
+          <div class="flex flex-col gap-2">
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Authors:</span>
+              {{ props.book.volumeInfo.authors.join(', ') }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Publisher:</span>
+              {{ props.book.volumeInfo.publisher ?? 'No data' }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Published date:</span>
+              {{ props.book.volumeInfo.publishedDate ?? 'No data' }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Pages:</span>
+              {{
+                props.book.volumeInfo.pageCount
+                  ? `${props.book.volumeInfo.pageCount} pages`
+                  : 'No data'
+              }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Categories:</span>
+              {{
+                props.book.volumeInfo.categories
+                  ? props.book.volumeInfo.categories.join(', ')
+                  : 'No data'
+              }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Average rating:</span>
+              {{ props.book.volumeInfo.averageRating ?? 'No data' }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              <span class="font-bold">Rating count:</span>
+              {{ props.book.volumeInfo.ratingsCount ?? 'No data' }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <DialogFooter class="gap-2">
+        <Button v-if="!isAlreadyAdded(props.book)" @click="addBook(props.book)"
+          >Add to my books</Button
+        >
+        <DialogClose as-child>
+          <Button variant="destructive">Close</Button>
+        </DialogClose>
+      </DialogFooter>
+    </DialogScrollContent>
+  </Dialog>
+</template>
