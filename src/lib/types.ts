@@ -20,11 +20,3 @@ export interface BookProps {
   };
   status?: BookStatus;
 }
-
-export type TabValue = 'all' | 'read' | 'reading' | 'to read' | 'search';
-
-export interface TabProps {
-  value: TabValue;
-  title: string;
-  subtitle: string;
-}
