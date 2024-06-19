@@ -1,4 +1,4 @@
-type BookStatus = 'READ' | 'READING' | 'TO READ';
+export type BookStatus = 'READ' | 'READING' | 'TO READ';
 
 export interface BookProps {
   id: string;
@@ -19,4 +19,12 @@ export interface BookProps {
     canonicalVolumeLink?: string;
   };
   status?: BookStatus;
+}
+
+export type ToastStatus = 'success' | 'error' | 'info' | 'warning';
+
+export interface Toast {
+  message: string;
+  status: ToastStatus;
+  id: number;
 }

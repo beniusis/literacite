@@ -1,8 +1,12 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import type { BookProps } from '@/lib/types';
+import type { BookProps, BookStatus } from '@/lib/types';
+
+import { useToastStore } from './toast';
 
 export const useBooksStore = defineStore('books', () => {
+  const { success, error, info } = useToastStore();
+
   const books = ref<BookProps[]>(localStorage.books ? JSON.parse(localStorage.books) : []);
 
   const allBooks = computed<BookProps[]>(() => {
@@ -32,10 +36,19 @@ export const useBooksStore = defineStore('books', () => {
     localStorage.books = JSON.stringify(books.value);
   };
 
-  const updateBookStatus = (book: BookProps, status: 'READ' | 'READING' | 'TO READ') => {
-    const bookIndex = books.value.findIndex((b: BookProps) => b === book);
-    books.value[bookIndex].status = status;
-    localStorage.books = JSON.stringify(books.value);
+  const updateBookStatus = (book: BookProps, status: BookStatus | undefined) => {
+    if (book.status === status) {
+      return info('Nothing to update!');
+    }
+
+    try {
+      const bookIndex = books.value.findIndex((b: BookProps) => b === book);
+      books.value[bookIndex].status = status;
+      localStorage.books = JSON.stringify(books.value);
+      success('Book status updated!');
+    } catch {
+      error('Something went wrong!');
+    }
   };
 
   const isAlreadyAdded = (book: BookProps) => {

@@ -9,8 +9,10 @@ import {
   DialogTitle
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import CurrentBookStatus from './CurrentBookStatus.vue';
 import type { BookProps } from '@/lib/types';
 import { useBooksStore } from '@/stores';
+import { ref } from 'vue';
 
 const props = defineProps<{
   isOpen: boolean;
@@ -21,7 +23,9 @@ const emit = defineEmits<{
   (e: 'close'): void;
 }>();
 
-const { addBook, isAlreadyAdded } = useBooksStore();
+const { addBook, updateBookStatus, isAlreadyAdded } = useBooksStore();
+
+const selectedStatus = ref(props.book.status);
 </script>
 
 <template>
@@ -80,6 +84,10 @@ const { addBook, isAlreadyAdded } = useBooksStore();
               <span class="font-bold">Rating count:</span>
               {{ props.book.volumeInfo.ratingsCount ?? 'No data' }}
             </p>
+            <p class="flex items-center justify-start gap-4 text-sm text-muted-foreground">
+              <span class="font-bold">Status:</span>
+              <CurrentBookStatus v-if="isAlreadyAdded(props.book)" v-model="selectedStatus" />
+            </p>
           </div>
         </div>
       </div>
@@ -88,6 +96,13 @@ const { addBook, isAlreadyAdded } = useBooksStore();
         <Button v-if="!isAlreadyAdded(props.book)" @click="addBook(props.book)"
           >Add to my books</Button
         >
+        <DialogClose as-child>
+          <Button
+            v-if="isAlreadyAdded(props.book)"
+            @click="updateBookStatus(props.book, selectedStatus)"
+            >Save</Button
+          >
+        </DialogClose>
         <DialogClose as-child>
           <Button variant="destructive">Close</Button>
         </DialogClose>
