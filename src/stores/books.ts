@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
-import type { BookProps, BookStatus } from '@/lib/types';
-
 import { useToastStore } from './toast';
+import type { BookProps, BookStatus } from '@/lib/types';
 
 export const useBooksStore = defineStore('books', () => {
   const { success, error, info } = useToastStore();
@@ -14,24 +13,19 @@ export const useBooksStore = defineStore('books', () => {
   });
 
   const readBooks = computed<BookProps[]>(() => {
-    return books.value.filter((book: BookProps) => book.status === 'READ');
+    return books.value.filter((book) => book.status === 'READ');
   });
 
   const readingBooks = computed<BookProps[]>(() => {
-    return books.value.filter((book: BookProps) => book.status === 'READING');
+    return books.value.filter((book) => book.status === 'READING');
   });
 
   const toReadBooks = computed<BookProps[]>(() => {
-    return books.value.filter((book: BookProps) => book.status === 'TO READ');
+    return books.value.filter((book) => book.status === 'TO READ');
   });
 
-  const addBooks = (newBooks: BookProps[]) => {
-    books.value = [...books.value, ...newBooks];
-    localStorage.books = JSON.stringify(books.value);
-  };
-
   const addBook = (book: BookProps) => {
-    if (books.value.find((b: BookProps) => b.id === book.id)) return;
+    if (books.value.find((b) => b.id === book.id)) return;
     books.value.push(book);
     localStorage.books = JSON.stringify(books.value);
   };
@@ -42,7 +36,7 @@ export const useBooksStore = defineStore('books', () => {
     }
 
     try {
-      const bookIndex = books.value.findIndex((b: BookProps) => b === book);
+      const bookIndex = books.value.findIndex((b) => b === book);
       books.value[bookIndex].status = status;
       localStorage.books = JSON.stringify(books.value);
       success('Book status updated!');
@@ -52,7 +46,7 @@ export const useBooksStore = defineStore('books', () => {
   };
 
   const isAlreadyAdded = (book: BookProps) => {
-    return books.value.find((b: BookProps) => b.id === book.id);
+    return books.value.find((b) => b.id === book.id);
   };
 
   return {
@@ -60,7 +54,6 @@ export const useBooksStore = defineStore('books', () => {
     readBooks,
     readingBooks,
     toReadBooks,
-    addBooks,
     addBook,
     updateBookStatus,
     isAlreadyAdded
