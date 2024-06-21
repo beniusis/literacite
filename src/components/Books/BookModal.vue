@@ -47,7 +47,7 @@ const selectedStatus = ref(props.book.status);
             :alt="`Cover of ${props.book.volumeInfo.title}`"
             loading="lazy"
           />
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col">
             <p class="text-sm text-muted-foreground">
               <span class="font-bold">Authors:</span>
               {{ props.book.volumeInfo.authors.join(', ') }}
@@ -84,9 +84,12 @@ const selectedStatus = ref(props.book.status);
               <span class="font-bold">Rating count:</span>
               {{ props.book.volumeInfo.ratingsCount ?? 'No data' }}
             </p>
-            <p class="flex items-center justify-start gap-4 text-sm text-muted-foreground">
+            <p
+              v-if="isAlreadyAdded(props.book)"
+              class="flex items-center justify-start gap-4 text-sm text-muted-foreground"
+            >
               <span class="font-bold">Status:</span>
-              <CurrentBookStatus v-if="isAlreadyAdded(props.book)" v-model="selectedStatus" />
+              <CurrentBookStatus v-model="selectedStatus" />
             </p>
           </div>
         </div>
