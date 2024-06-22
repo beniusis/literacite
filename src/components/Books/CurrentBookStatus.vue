@@ -5,7 +5,7 @@ import { BookCheck, BookOpen, BookPlus } from 'lucide-vue-next';
 </script>
 
 <template>
-  <ToggleGroup type="single">
+  <ToggleGroup type="single" variant="outline">
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>

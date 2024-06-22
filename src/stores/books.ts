@@ -39,7 +39,7 @@ export const useBooksStore = defineStore('books', () => {
       const bookIndex = books.value.findIndex((b) => b === book);
       books.value[bookIndex].status = status;
       localStorage.books = JSON.stringify(books.value);
-      success('Book status updated!');
+      success(`${book.volumeInfo.title} status changed to ${status}!`);
     } catch {
       error('Something went wrong!');
     }

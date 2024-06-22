@@ -18,7 +18,7 @@ export const useToastStore = defineStore('toast', () => {
   const updateState = (message: string, status: ToastStatus) => {
     const toast = createToast(message, status);
 
-    toasts.value.unshift(toast);
+    toasts.value.push(toast);
     console.log(toasts.value);
 
     setTimeout(() => {

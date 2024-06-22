@@ -103,6 +103,7 @@ const selectedStatus = ref(props.book.status);
           <Button
             v-if="isAlreadyAdded(props.book)"
             @click="updateBookStatus(props.book, selectedStatus)"
+            :disabled="selectedStatus === undefined"
             >Save</Button
           >
         </DialogClose>
