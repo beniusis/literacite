@@ -43,7 +43,9 @@ const numOfPages = ref(pagesPerDay.value);
 
       <DialogFooter class="gap-2">
         <DialogClose as-child>
-          <Button @click="setPagesPerDay(numOfPages)">Save</Button>
+          <Button @click="setPagesPerDay(numOfPages)" :disabled="numOfPages === pagesPerDay"
+            >Save</Button
+          >
         </DialogClose>
       </DialogFooter>
     </DialogContent>
