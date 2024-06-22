@@ -14,7 +14,7 @@ export const useBooks = async (query: string) => {
       `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=books&maxResults=40&orderBy=relevance`
     );
     const data = await response.json();
-    books.value = data.items;
+    books.value = data.items ?? [];
   } catch {
     error.value = true;
   } finally {
