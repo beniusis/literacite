@@ -10,7 +10,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const setPagesPerDay = (value: number) => {
     pagesPerDay.value = value;
     localStorage.setItem('pages-per-day', value.toString());
-    success(`Pages per day set to ${value}!`);
+    success(`Pages per day to read set to ${value}!`);
   };
 
   return { pagesPerDay, setPagesPerDay };

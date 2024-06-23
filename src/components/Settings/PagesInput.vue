@@ -1,21 +1,15 @@
 <script setup lang="ts">
-import {
-  NumberField,
-  NumberFieldContent,
-  NumberFieldDecrement,
-  NumberFieldIncrement,
-  NumberFieldInput
-} from '@/components/ui/number-field';
+import { NumberField, NumberFieldContent, NumberFieldInput } from '@/components/ui/number-field';
 import { Label } from '@/components/ui/label';
 </script>
 
 <template>
   <NumberField id="pages" :min="1" class="gap-2">
-    <Label for="pages" class="text-center sm:text-left">Pages to read in a day</Label>
+    <Label for="pages" class="sr-only">Pages to read in a day</Label>
     <NumberFieldContent>
-      <NumberFieldDecrement />
-      <NumberFieldInput />
-      <NumberFieldIncrement />
+      <NumberFieldInput
+        class="h-fit border-none text-7xl font-bold tracking-tighter shadow-none outline-none focus-visible:ring-0"
+      />
     </NumberFieldContent>
   </NumberField>
 </template>
