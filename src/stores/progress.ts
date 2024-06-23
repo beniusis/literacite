@@ -22,12 +22,13 @@ const getTodayPages = () => {
 
 const setTodayPages = (value: number) => {
   const today = getCurrentDate();
-  const { error } = useToastStore();
+  const { success, error } = useToastStore();
 
   try {
     const stats: Stats = JSON.parse(localStorage.getItem('stats') as string) || {};
     stats[today] = value;
     localStorage.setItem('stats', JSON.stringify(stats));
+    success(`Pages read today: ${stats[today]}`);
   } catch {
     error("Failed to update today's progress.");
   }

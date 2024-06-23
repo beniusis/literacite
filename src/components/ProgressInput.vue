@@ -20,7 +20,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { BookMarked } from 'lucide-vue-next';
 import { ref } from 'vue';
-import { useProgressStore } from '@/stores/progress';
+import { useProgressStore } from '@/stores';
 import { storeToRefs } from 'pinia';
 
 const progressStore = useProgressStore();
