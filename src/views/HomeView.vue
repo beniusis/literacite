@@ -1,6 +1,14 @@
 headerheader
 <script setup lang="ts">
-import { Books, Navigation, Filter, Header, SearchBar, Settings } from '@/components';
+import {
+  Books,
+  Navigation,
+  Filter,
+  Header,
+  ProgressInput,
+  SearchBar,
+  Settings
+} from '@/components';
 import { useBooksStore } from '@/stores';
 import { computed, ref } from 'vue';
 import type { BookProps } from '@/lib/types';
@@ -58,9 +66,14 @@ const searchForBooks = async () => {
       </Header>
 
       <main class="flex w-full flex-col gap-4 p-4">
-        <div class="mr-auto space-x-2">
-          <Filter v-model="selectedFilter" />
-          <Settings />
+        <div class="flex">
+          <div class="mr-auto space-x-2">
+            <Filter v-model="selectedFilter" />
+          </div>
+          <div class="ml-auto space-x-2">
+            <ProgressInput />
+            <Settings />
+          </div>
         </div>
 
         <Books :books="filteredBooks" />

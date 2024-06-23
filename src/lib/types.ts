@@ -28,3 +28,7 @@ export interface Toast {
   status: ToastStatus;
   id: number;
 }
+
+export interface Stats {
+  [key: string]: number;
+}

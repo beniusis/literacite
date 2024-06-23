@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import { NumberFieldInput } from 'radix-vue'
-import { cn } from '@/lib/utils'
+import { NumberFieldInput } from 'radix-vue';
+import { cn } from '@/lib/utils';
 </script>
 
 <template>
-  <NumberFieldInput :class="cn('flex h-9 w-full rounded-md border border-input bg-transparent px-10 py-1 text-sm text-center shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50')" />
+  <NumberFieldInput
+    :class="
+      cn(
+        'flex h-fit w-full rounded-md bg-transparent px-10 py-1 text-center font-bold transition-colors placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50'
+      )
+    "
+  />
 </template>

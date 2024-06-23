@@ -23,7 +23,7 @@ const emit = defineEmits<{
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="outline" size="sm" class="h-7 gap-1">
+      <Button variant="ghost" size="sm" class="h-7 gap-1">
         <ListFilter class="size-3.5" />
         <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">Filter</span>
       </Button>

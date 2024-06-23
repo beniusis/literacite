@@ -19,7 +19,6 @@ export const useToastStore = defineStore('toast', () => {
     const toast = createToast(message, status);
 
     toasts.value.push(toast);
-    console.log(toasts.value);
 
     setTimeout(() => {
       toasts.value = toasts.value.filter((t: Toast) => t.id !== toast.id);

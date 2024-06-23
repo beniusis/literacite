@@ -40,7 +40,7 @@ const numOfPages = ref(pagesPerDay.value);
         <div class="p-4 pt-0">
           <div class="flex items-center justify-center space-x-2">
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               class="h-8 w-8 shrink-0 rounded-full"
               :disabled="numOfPages === 1"
@@ -54,7 +54,7 @@ const numOfPages = ref(pagesPerDay.value);
               <div class="text-[0.7rem] uppercase text-muted-foreground">Pages/day</div>
             </div>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               class="h-8 w-8 shrink-0 rounded-full"
               @click="numOfPages += 1"
