@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { HomeView } from '@/views';
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHistory('/literacite/'),
   routes: [
     {
       path: '/',
