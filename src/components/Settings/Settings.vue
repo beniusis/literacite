@@ -57,6 +57,7 @@ const numOfPages = ref(pagesPerDay.value);
               variant="ghost"
               size="icon"
               class="h-8 w-8 shrink-0 rounded-full"
+              :disabled="numOfPages === 1000"
               @click="numOfPages += 1"
               data-testid="settings-increment-btn"
             >

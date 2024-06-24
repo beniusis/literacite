@@ -51,6 +51,7 @@ const pagesRead = ref(numOfPagesReadToday.value === 0 ? 1 : numOfPagesReadToday.
           id="pages-read"
           v-model="pagesRead"
           :min="numOfPagesReadToday === 0 ? 1 : numOfPagesReadToday"
+          :max="1000"
         >
           <Label for="pages-read">Pages read</Label>
           <NumberFieldContent>
