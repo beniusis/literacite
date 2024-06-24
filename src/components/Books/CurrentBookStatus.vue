@@ -29,7 +29,7 @@ import { BookCheck, BookOpen, BookPlus } from 'lucide-vue-next';
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>
-          <ToggleGroupItem value="TO READ" aria-label="mark as to read">
+          <ToggleGroupItem value="TO READ" aria-label="mark as to read" data-testid="to-read-btn">
             <BookPlus class="h-4 w-4" />
           </ToggleGroupItem>
         </TooltipTrigger>

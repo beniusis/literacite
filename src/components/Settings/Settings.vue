@@ -26,7 +26,7 @@ const numOfPages = ref(pagesPerDay.value);
 <template>
   <Drawer>
     <DrawerTrigger as-child>
-      <Button size="sm" class="h-7 gap-1">
+      <Button size="sm" class="h-7 gap-1" data-testid="settings-btn">
         <Settings class="h-3.5 w-3.5" />
         <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">Settings</span>
       </Button>
@@ -58,6 +58,7 @@ const numOfPages = ref(pagesPerDay.value);
               size="icon"
               class="h-8 w-8 shrink-0 rounded-full"
               @click="numOfPages += 1"
+              data-testid="settings-increment-btn"
             >
               <PlusIcon class="h-4 w-4" />
               <span class="sr-only">Increase</span>
@@ -66,7 +67,12 @@ const numOfPages = ref(pagesPerDay.value);
         </div>
         <DrawerFooter>
           <DrawerClose as-child>
-            <Button @click="setPagesPerDay(numOfPages)">Save</Button>
+            <Button
+              @click="setPagesPerDay(numOfPages)"
+              :disabled="numOfPages === pagesPerDay"
+              data-testid="settings-save-btn"
+              >Save</Button
+            >
           </DrawerClose>
           <DrawerClose as-child>
             <Button variant="outline">Cancel</Button>

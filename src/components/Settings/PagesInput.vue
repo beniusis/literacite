@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
   <NumberField id="pages" :min="1" class="gap-2">
     <Label for="pages" class="sr-only">Pages to read in a day</Label>
     <NumberFieldContent>
-      <NumberFieldInput class="text-7xl" />
+      <NumberFieldInput class="text-7xl" data-testid="pages-input" />
     </NumberFieldContent>
   </NumberField>
 </template>

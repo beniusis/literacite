@@ -33,7 +33,7 @@ const pagesRead = ref(numOfPagesReadToday.value === 0 ? 1 : numOfPagesReadToday.
 <template>
   <Sheet>
     <SheetTrigger>
-      <Button size="sm" class="h-7 gap-1" variant="outline">
+      <Button size="sm" class="h-7 gap-1" variant="outline" data-testid="mark-reading-btn">
         <BookMarked class="h-3.5 w-3.5" />
         <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">Mark Reading</span>
       </Button>
@@ -55,7 +55,7 @@ const pagesRead = ref(numOfPagesReadToday.value === 0 ? 1 : numOfPagesReadToday.
           <Label for="pages-read">Pages read</Label>
           <NumberFieldContent>
             <NumberFieldDecrement />
-            <NumberFieldInput class="border border-input text-sm" />
+            <NumberFieldInput class="border border-input text-sm" data-testid="pages-read-input" />
             <NumberFieldIncrement />
           </NumberFieldContent>
         </NumberField>
@@ -66,6 +66,7 @@ const pagesRead = ref(numOfPagesReadToday.value === 0 ? 1 : numOfPagesReadToday.
           <Button
             @click="setNumOfPagesReadToday(pagesRead)"
             :disabled="pagesRead === numOfPagesReadToday"
+            data-testid="submit-pages-read-btn"
             >Submit</Button
           >
         </SheetClose>

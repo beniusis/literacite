@@ -96,14 +96,20 @@ const selectedStatus = ref(props.book.status);
       </div>
 
       <DialogFooter class="gap-2">
-        <Button v-if="!isAlreadyAdded(props.book)" @click="addBook(props.book)"
-          >Add to my books</Button
-        >
+        <DialogClose as-child>
+          <Button
+            v-if="!isAlreadyAdded(props.book)"
+            @click="addBook(props.book)"
+            data-testid="add-to-list-btn"
+            >Add to my books</Button
+          >
+        </DialogClose>
         <DialogClose as-child>
           <Button
             v-if="isAlreadyAdded(props.book)"
             @click="updateBookStatus(props.book, selectedStatus)"
             :disabled="selectedStatus === undefined"
+            data-testid="book-save-btn"
             >Save</Button
           >
         </DialogClose>

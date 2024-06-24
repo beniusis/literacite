@@ -19,10 +19,10 @@ const props = defineProps<{
     </CardHeader>
 
     <CardContent>
-      <EmptyBooks v-if="books.length === 0" />
+      <EmptyBooks v-if="books.length === 0" data-testid="empty-books" />
 
       <div v-else class="grid grid-cols-auto gap-x-8 gap-y-4">
-        <VBook v-for="book in props.books" :key="book.id" :book="book" />
+        <VBook v-for="book in props.books" :key="book.id" :book="book" data-testid="book" />
       </div>
     </CardContent>
   </Card>
