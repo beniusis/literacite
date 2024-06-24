@@ -30,16 +30,16 @@ const selectedStatus = ref(props.book.status);
 
 <template>
   <Dialog :open="props.isOpen" @update:open="emit('close')">
-    <DialogScrollContent class="gap-12">
+    <DialogScrollContent class="gap-8">
       <DialogHeader>
         <DialogTitle>{{ props.book.volumeInfo.title }}</DialogTitle>
-        <DialogDescription>
+        <DialogDescription class="text-justify">
           {{ props.book.volumeInfo.description ?? 'No description available.' }}
         </DialogDescription>
       </DialogHeader>
 
       <div class="flex flex-col items-center justify-center">
-        <div class="flex w-full items-center justify-center gap-12 sm:justify-start">
+        <div class="flex w-full items-center justify-start gap-4">
           <img
             v-if="props.book.volumeInfo.imageLinks"
             class="rounded-md object-cover"
