@@ -22,7 +22,7 @@ const emitSearch = useDebounceFn(() => {
     <Search class="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
     <Input
       id="search-input"
-      type="text"
+      type="search"
       placeholder="Search for a book..."
       class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
       :model-value="props.searchValue"
