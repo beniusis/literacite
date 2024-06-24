@@ -9,7 +9,7 @@ describe('Books store tests', () => {
 
   it('gets the default number of pages per day to read', () => {
     const settingsStore = useSettingsStore();
-    expect(settingsStore.pagesPerDay).toBe(1);
+    expect(settingsStore.pagesPerDay).toBe(25);
   });
 
   it('gets the number of pages per day to read from local storage', () => {
