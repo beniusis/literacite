@@ -9,7 +9,8 @@ const props = defineProps<{
 }>();
 
 const progress = computed(() => {
-  return (props.pagesRead / props.pagesTotal) * 100;
+  const percentage = (props.pagesRead / props.pagesTotal) * 100;
+  return percentage <= 100 ? percentage : 100;
 });
 </script>
 
