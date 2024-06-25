@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useDebounceFn } from '@vueuse/core';
 import { Search } from 'lucide-vue-next';
 
@@ -19,6 +20,7 @@ const emitSearch = useDebounceFn(() => {
 
 <template>
   <div class="relative">
+    <Label for="search-input" class="sr-only">Search</Label>
     <Search class="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
     <Input
       id="search-input"
