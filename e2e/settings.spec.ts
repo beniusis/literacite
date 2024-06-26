@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 
 test('change pages per day to read setting', async ({ page }) => {
   await page.goto('./');
-  await expect(page.getByTestId('progress-result')).toHaveText('0 / 1');
+  await expect(page.getByTestId('progress-result')).toHaveText('0 / 25');
 
   await page.getByTestId('settings-btn').click();
-  await expect(page.getByTestId('pages-input')).toHaveValue('1');
+  await expect(page.getByTestId('pages-input')).toHaveValue('25');
   await expect(page.getByTestId('settings-save-btn')).toBeDisabled();
 
   await page.getByTestId('pages-input').fill('10');
