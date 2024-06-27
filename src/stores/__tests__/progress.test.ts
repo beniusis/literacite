@@ -1,7 +1,7 @@
 import { createPinia, setActivePinia } from 'pinia';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { useProgressStore } from '../progress';
-import { getCurrentDate } from '@/lib/utils';
+import { getCurrentDate } from '@/utils';
 
 describe('Books store tests', () => {
   beforeEach(() => {

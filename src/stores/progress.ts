@@ -1,4 +1,4 @@
-import { getCurrentDate } from '@/lib/utils';
+import { getCurrentDate } from '@/utils';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { useToastStore } from './toast';
