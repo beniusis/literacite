@@ -114,7 +114,9 @@ const selectedStatus = ref(props.book.status);
           >
         </DialogClose>
         <DialogClose as-child>
-          <Button variant="destructive">Close</Button>
+          <Button variant="destructive" @click="selectedStatus = props.book.status ?? undefined"
+            >Close</Button
+          >
         </DialogClose>
       </DialogFooter>
     </DialogScrollContent>
