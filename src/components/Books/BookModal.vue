@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import CurrentBookStatus from './CurrentBookStatus.vue';
-import type { BookProps } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
 import { useBooksStore } from '@/stores';
 import { ref } from 'vue';
 

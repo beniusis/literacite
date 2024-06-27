@@ -2,7 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import EmptyBooks from './EmptyBooks.vue';
 import VBook from './VBook.vue';
-import type { BookProps } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
 
 const props = defineProps<{
   books: BookProps[];

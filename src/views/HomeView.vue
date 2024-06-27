@@ -10,7 +10,7 @@ import {
 } from '@/components';
 import { useBooksStore, useProgressStore, useSettingsStore } from '@/stores';
 import { computed, ref } from 'vue';
-import type { BookProps } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
 import { storeToRefs } from 'pinia';
 import { useBooks } from '@/composables';
 

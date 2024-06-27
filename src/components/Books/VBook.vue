@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BookProps } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
 import BookModal from './BookModal.vue';
 import { ref } from 'vue';
 

@@ -1,4 +1,4 @@
-export type BookStatus = 'READ' | 'READING' | 'TO READ';
+import type { BookStatus } from '../types';
 
 export interface BookProps {
   id: string;
@@ -19,16 +19,4 @@ export interface BookProps {
     canonicalVolumeLink?: string;
   };
   status?: BookStatus;
-}
-
-export type ToastStatus = 'success' | 'error' | 'info' | 'warning';
-
-export interface Toast {
-  message: string;
-  status: ToastStatus;
-  id: number;
-}
-
-export interface Stats {
-  [key: string]: number;
 }

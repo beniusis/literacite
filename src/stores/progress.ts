@@ -2,7 +2,7 @@ import { getCurrentDate } from '@/utils';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { useToastStore } from './toast';
-import type { Stats } from '@/lib/types';
+import type { Stats } from '@/interfaces';
 
 const getTodayPages = () => {
   const today = getCurrentDate();

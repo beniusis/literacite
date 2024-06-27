@@ -14,7 +14,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/interfaces": ["./src/ts/interfaces"],
+      "@/types": ["./src/ts/types"]
     }
   }
 }

@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import { useToastStore } from './toast';
-import type { BookProps, BookStatus } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
+import type { BookStatus } from '@/types';
 
 export const useBooksStore = defineStore('books', () => {
   const { success, error, info } = useToastStore();

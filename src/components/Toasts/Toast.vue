@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ToastStatus } from '@/lib/types';
+import type { ToastStatus } from '@/types';
 import { Ban, CircleCheck, Info, TriangleAlert } from 'lucide-vue-next';
 
 const props = defineProps<{

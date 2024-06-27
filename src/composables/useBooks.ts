@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import type { BookProps } from '@/lib/types';
+import type { BookProps } from '@/interfaces';
 
 export const useBooks = async (query: string) => {
   const loading = ref(false);

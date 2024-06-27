@@ -1,4 +1,5 @@
-import type { Toast, ToastStatus } from '@/lib/types';
+import type { Toast } from '@/interfaces';
+import type { ToastStatus } from '@/types';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
