@@ -56,26 +56,21 @@ const searchForBooks = async () => {
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full flex-col bg-muted/40">
-    <div class="flex flex-col sm:py-4">
+  <div class="flex min-h-screen flex-col items-center bg-muted/40">
+    <div class="flex flex-col items-center sm:py-4">
       <Header>
         <h1 class="sr-only">literacite</h1>
-        <div class="relative mr-auto flex-1 gap-2 md:grow-0">
-          <SearchBar v-model:search-value="searchValue" @search="searchForBooks" />
-        </div>
+        <SearchBar v-model:search-value="searchValue" @search="searchForBooks" />
       </Header>
 
-      <main class="flex w-full flex-col gap-4 p-4">
-        <div class="flex flex-col gap-4 sm:flex-row sm:gap-0">
-          <div class="space-x-2 sm:mr-auto">
-            <ReadingProgress
-              title="Pages read today"
-              :pagesRead="numOfPagesReadToday"
-              :pagesTotal="pagesPerDay"
-            />
-          </div>
-
-          <div class="space-x-2 sm:ml-auto">
+      <main class="container flex max-w-fit flex-col gap-4 p-4">
+        <div class="flex flex-col items-center justify-between gap-4">
+          <ReadingProgress
+            title="Pages read today"
+            :pagesRead="numOfPagesReadToday"
+            :pagesTotal="pagesPerDay"
+          />
+          <div class="space-x-2">
             <Filter v-model="selectedFilter" />
             <ProgressInput />
             <Settings />

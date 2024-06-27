@@ -26,7 +26,7 @@ const emitSearch = useDebounceFn(() => {
       id="search-input"
       type="search"
       placeholder="Search for a book..."
-      class="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
+      class="w-full rounded-lg bg-background pl-8 md:w-[320px]"
       :model-value="props.searchValue"
       @update:model-value="emit('update:searchValue', $event.toString())"
       @input="emitSearch"

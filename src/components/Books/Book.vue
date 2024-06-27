@@ -13,11 +13,11 @@ const isModalOpen = ref(false);
 <template>
   <div
     v-if="props.book.volumeInfo.imageLinks && props.book.volumeInfo.authors"
-    class="group row-span-2 grid cursor-pointer grid-rows-subgrid"
+    class="group flex cursor-pointer flex-col gap-2"
     :title="props.book.volumeInfo.title"
     @click="isModalOpen = true"
   >
-    <div class="relative max-h-60 max-w-40">
+    <div class="relative h-60 w-40">
       <img
         class="h-full w-full rounded-md object-cover group-hover:opacity-75"
         :src="props.book.volumeInfo.imageLinks.thumbnail"
@@ -30,7 +30,9 @@ const isModalOpen = ref(false);
       <h2 class="max-w-40 truncate font-headland text-sm text-primary">
         {{ props.book.volumeInfo.title }}
       </h2>
-      <p class="text-xs text-muted-foreground">{{ props.book.volumeInfo.authors.join(', ') }}</p>
+      <p class="max-w-40 truncate text-xs text-muted-foreground">
+        {{ props.book.volumeInfo.authors.join(', ') }}
+      </p>
     </div>
 
     <BookModal :is-open="isModalOpen" :book="book" @close="isModalOpen = false" />
